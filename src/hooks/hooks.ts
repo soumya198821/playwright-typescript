@@ -24,8 +24,7 @@ Before(async function ({pickle}) {
 
 After(async function ({pickle,result}) {
     if(result?.status==Status.FAILED){
-        // const img = await fixture.page.screenshot({ path: `./test-results/screenshots/${pickle.name}.png` });
-        // await this.attach('screenshot', { body: img, contentType: 'image/png'});
+        const img = await fixture.page.screenshot({ path: `./test-results/screenshots/${pickle.name}.png` });
         try{
         await fixture.page.locator("//button[@id='react-burger-menu-btn']").click();
         await fixture.page.getByText("Logout").isVisible();
